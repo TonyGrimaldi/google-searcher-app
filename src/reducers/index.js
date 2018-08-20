@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
 
+import searchTermReducer from './searchTermReducer';
+
 const rootReducer = combineReducers({
-  state: (state = {}) => state
+  term: searchTermReducer
 });
 
 export default rootReducer;

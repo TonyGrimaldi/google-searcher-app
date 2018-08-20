@@ -1,0 +1,15 @@
+header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.SearchBar-container {
+  text-align: center;
+}
+
+.SearchBar-container input {
+  text-align: center;
+  width: 400px;
+  height: 50px;
+}
+

@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import axios from 'axios';
+
+import Header from './header';
+import SearchBar from './searchBar';
 
 const URL = 'https://www.googleapis.com/customsearch/v1?';
 const key = 'AIzaSyAZzAPJwFLT6VuWqo03IHdJ86K7ndGAET4';
@@ -10,23 +14,30 @@ const fullURL = `${URL}key=${key}&cx=${cx}&q=${query}`;
 
 
 
-export default class App extends Component {
-
+export class App extends Component {
   state = {
     results: []
   }
 
-  componentDidMount() {
+/*  componentDidMount() {
     axios.get(fullURL)
       .then(res => {
         const results = res.data;
         this.setState({ results });
       })
   }
-
+*/
   render() {
     return (
-      <div>{console.log(this.state)}</div>
+      <div>
+        <Header />
+        <SearchBar />
+        {console.log(this.props)}
+      </div>
     );
   }
 }
+
+export default connect(state => ({
+  term: state.term.searchTerm
+}))(App);
