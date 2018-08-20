@@ -1,9 +1,9 @@
 {
-  "name": "google-search-app",
+  "name": "sport-news-searcher-app",
   "version": "1.0.0",
   "description": "Simple app in React using google search API",
   "main": "index.js",
-  "repository": "https://github.com/TonyGrimaldi/google-searcher-app.git",
+  "repository": "https://github.com/TonyGrimaldi/sport-news-searcher-app.git",
   "scripts": {
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
