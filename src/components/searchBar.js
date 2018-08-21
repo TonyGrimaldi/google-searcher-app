@@ -14,27 +14,19 @@ export class SearchBar extends Component {
     };
 
     this.setTerm = this.setTerm.bind(this);
-    this.search = this.search.bind(this);
   }
 
   setTerm(event) {
     this.setState({
       term: event.target.value
     });
-  }
-
-  search() {
     this.props.getSearchTerm('SEARCH', this.state.term);
-    this.setState({
-      term: ''
-    });
   }
 
   render() {
     return (
       <div className="SearchBar-container">
         <input type="text" onChange={this.setTerm} placeholder='insert here your research term, ex: "Juventus"'/>
-        <button onClick={this.search}>SEARCH!</button>
       </div>
     );
   }
