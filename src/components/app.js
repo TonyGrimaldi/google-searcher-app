@@ -4,35 +4,45 @@ import axios from 'axios';
 
 import Header from './header';
 import SearchBar from './searchBar';
+import ListOfResults from './listOfResults';
 
-const URL = 'https://www.googleapis.com/customsearch/v1?';
+const key2 = 'AIzaSyAXntsWTispjPzlMEcMDk7n44z5g6O1Yy8';
+const basicURL = 'https://www.googleapis.com/customsearch/v1?';
 const key = 'AIzaSyAZzAPJwFLT6VuWqo03IHdJ86K7ndGAET4';
 const cx = '000674345227953438871:y-whkppmv8k';
 const query = 'juventus';
-const fullURL = `${URL}key=${key}&cx=${cx}&q=${query}`;
-
-
+const URL = `${basicURL}key=${key2}&cx=${cx}&q=`;
 
 
 export class App extends Component {
-  state = {
-    results: []
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      results: [],
+    };
+
+    this.searchNews = this.searchNews.bind(this);
   }
 
-/*  componentDidMount() {
+  searchNews() {    
+    const fullURL = `${URL}${this.props.term}`;
     axios.get(fullURL)
       .then(res => {
         const results = res.data;
         this.setState({ results });
-      })
+    });   
   }
-*/
+
   render() {
     return (
-      <div>
+      <div className="app">
         <Header />
         <SearchBar />
-        {console.log(this.props)}
+        <button id="search-button" onClick={this.searchNews}>searchterm</button>
+        <ListOfResults 
+          results={this.state.results}
+        />
       </div>
     );
   }
